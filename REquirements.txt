@@ -1,0 +1,35 @@
+Build a Sandwich Making Simulator The submission will be a sandwich making game utilizing Unity3D and Google Cardboard SDK. Utilizing the gaze, please build the application based on instructions below. Please use whatever 3D assets you prefer. � Have two pieces of bread you can dress with different kinds of toppings. � Needs a menu where user can drag and drop topping on to the bread � Click done to show the final closed sandwich
+
+Note: Be creative with the way the choices are presented and user interacts with dressing the bread. Make Badass sandwiches!
+
+Requirements � 
+Must use Raycast in someway 
+� Must utilize Unity3D and Google VR/Cardboard SDK �
+ Must be user-friendly � 
+Must look presentable � 
+Must use primitive colliders � 
+Be creative :)
+
+
+
+
+
+
+IDEAS:
+Obviously make the sandwich.
+	-When the player taps on a material, snap it to a transform on thei hand
+	-If they are holding something, and a new material is tapped on, drop that something
+	-If they tap on the sandwich, add the material to the sandwich
+	-Tapping on the stick finishes the sandwich
+	-After something is dropped, have it shrink and despawn if not picked up within 10 seconds
+
+Yeet the food
+	-Use raycast and shooter aim assist
+	-Basically a way to get the raycast in there, cause im not sure if the raycast that comes with the asset pack counts
+
+Have a dog?
+	-Sits beside you
+	-When you pick up meat, it will start begging
+	
+	-If the dog is fed, have it walk off screen with the meat in its mouth
+
