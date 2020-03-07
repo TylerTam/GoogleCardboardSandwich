@@ -33,3 +33,8 @@ Have a dog?
 	
 	-If the dog is fed, have it walk off screen with the meat in its mouth
 
+
+TODO:
+-Fix player collider so that it will adjust with how big the sandwich is
+-Add fridge model
+-Do smething with peanut butter and knife or some shit

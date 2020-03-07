@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlatingEvent : UnityEngine.Events.UnityEvent { }
 
 [System.Serializable]
-public class PlatingObjectEvent:UnityEngine.Events.UnityEvent<int> { }
+public class PlatingObjectEvent : UnityEngine.Events.UnityEvent<int> { }
 
 #endregion
 
@@ -25,15 +25,28 @@ public class PlatingArea : MonoBehaviour, IInteractable
         public PlatingEvent m_falseStartEvent;
         public PlatingObjectEvent m_newObjectPlated;
         public PlatingEvent m_sandwichCompleteEvent;
-        
+
     }
     #endregion
 
 
 
+    #region Plate collider size variables
+    [Header("Plate Colldier")]
+    public BoxCollider m_plateCollider;
+    private float m_colOriginalSizeY;
+    private float m_colOriginalPositionY;
+    private List<Transform> m_transformsInSandwhich = new List<Transform>();
+    #endregion
+
     #region Plating Objects Variables
     private ObjectPooler m_pooler;
     private PlayerHand m_playerHand;
+    public enum IngredientType
+    {
+        Bread, Meat, Veggies, Sauce
+    }
+
     /// <summary>
     /// The prefabs that are placed on the object
     /// </summary>
@@ -41,21 +54,27 @@ public class PlatingArea : MonoBehaviour, IInteractable
     public struct FoodObjects
     {
         public GameObject m_objectOnSandwich;
+        public IngredientType m_ingredientType;
     }
     public List<FoodObjects> m_foodObjects;
 
     public AnimationCurve m_platingAnimCurve;
     public float m_platingAnimTime;
-    [Tooltip ("Used to determine how high to start the placing animation")]
+    [Tooltip("Used to determine how high to start the placing animation")]
     public float m_startAnimHeight = 1;
     private BoxCollider m_lastPlacedObject;
     private Vector3 m_lastPlacedPos;
+
+    private SandwhichType m_currentSandwhich = new SandwhichType();
+
     #endregion
 
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
         m_playerHand = PlayerHand.Instance;
+        m_colOriginalPositionY = transform.position.y + m_plateCollider.center.y;
+        m_colOriginalSizeY = m_plateCollider.size.y;
     }
 
     #region Plating Objects Functions
@@ -65,7 +84,39 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// <param name="p_objectType"></param>
     private void AddObjectToSandwich(int p_objectType)
     {
+        m_currentSandwhich.m_hasTopBread = false;
+        AddIngredientToSandwhichType(m_foodObjects[p_objectType].m_ingredientType);
         StartCoroutine(PlateFoodAnimation(p_objectType));
+    }
+
+    /// <summary>
+    /// Adds the ingredient type to the sandwhich type
+    /// </summary>
+    /// <param name="p_currentIngredient"></param>
+    private void AddIngredientToSandwhichType(IngredientType p_currentIngredient)
+    {
+        switch (p_currentIngredient)
+        {
+            case IngredientType.Bread:
+                if (!m_currentSandwhich.m_hasBottomBread)
+                {
+                    m_currentSandwhich.m_hasBottomBread = true;
+                }
+                else
+                {
+                    m_currentSandwhich.m_hasTopBread = true;
+                }
+                break;
+            case IngredientType.Meat:
+                m_currentSandwhich.m_hasMeat = true;
+                break;
+            case IngredientType.Sauce:
+                m_currentSandwhich.m_hasSauce = true;
+                break;
+            case IngredientType.Veggies:
+                m_currentSandwhich.m_hasVegies = true;
+                break;
+        }
     }
 
     /// <summary>
@@ -77,10 +128,9 @@ public class PlatingArea : MonoBehaviour, IInteractable
     {
 
         GameObject newFood = m_pooler.NewObject(m_foodObjects[p_objectType].m_objectOnSandwich, transform.position, Quaternion.identity);
-
+        
 
         //Gets the correct placement of the new food to be placed;
-
         float currentFoodHeight = 0;
 
         //If the player has just placed the first bread for the sandwich
@@ -92,24 +142,34 @@ public class PlatingArea : MonoBehaviour, IInteractable
         }
         else
         {
-            currentFoodHeight = (m_lastPlacedObject.size.y / 2) + m_lastPlacedPos.y; 
+            currentFoodHeight = (m_lastPlacedObject.size.y / 2) + m_lastPlacedPos.y;
         }
-        
-        m_lastPlacedObject = newFood.GetComponent<BoxCollider>();
-        currentFoodHeight += m_lastPlacedObject.size.y/2;
-        m_lastPlacedPos = new Vector3(0,currentFoodHeight,0);
 
-        newFood.transform.position = new Vector3(newFood.transform.position.x,currentFoodHeight + m_startAnimHeight , newFood.transform.position.z);
+        m_lastPlacedObject = newFood.GetComponent<BoxCollider>();
+        currentFoodHeight += m_lastPlacedObject.size.y / 2;
+        m_lastPlacedPos = new Vector3(0, currentFoodHeight, 0);
+        newFood.transform.position = new Vector3(newFood.transform.position.x, currentFoodHeight + m_startAnimHeight, newFood.transform.position.z);
+
+        RecalculatePlateCollider();
+        m_transformsInSandwhich.Add(newFood.transform);
+
 
         float timer = 0;
         while (timer < m_platingAnimTime)
         {
             timer += Time.deltaTime;
             float newFoodYPos = Mathf.Lerp(currentFoodHeight + m_startAnimHeight, currentFoodHeight, m_platingAnimCurve.Evaluate(timer / m_platingAnimTime));
-            newFood.transform.position = new Vector3( newFood.transform.position.x, newFoodYPos, newFood.transform.position.z);
+            newFood.transform.position = new Vector3(newFood.transform.position.x, newFoodYPos, newFood.transform.position.z);
             yield return null;
         }
         m_platingEvents.m_newObjectPlated.Invoke(p_objectType);
+    }
+
+    private void RecalculatePlateCollider()
+    {
+        float sizeY = (m_colOriginalPositionY - (m_colOriginalSizeY / 2) + (m_lastPlacedObject.size.y / 2) + m_lastPlacedPos.y);
+        m_plateCollider.size = new Vector3(m_plateCollider.size.x, sizeY, m_plateCollider.size.z);
+        m_plateCollider.center = new Vector3(0, (m_plateCollider.size.y / 2), 0);
     }
 
     #endregion
@@ -124,11 +184,39 @@ public class PlatingArea : MonoBehaviour, IInteractable
         HeldFoodObject foodObject = m_playerHand.CurrentHeldObject().ReturnCurrentObject().GetComponent<HeldFoodObject>();
         if (foodObject != null)
         {
-            AddObjectToSandwich(foodObject.m_heldFoodIndex);
-            m_playerHand.EmptyHand(true);
-            return true;
+            if (!m_currentSandwhich.m_hasBottomBread)
+            {
+                if(foodObject.m_heldFoodIndex == 0)
+                {
+                    AddObjectToSandwich(foodObject.m_heldFoodIndex);
+                    m_playerHand.EmptyHand(true);
+                    return true;
+                }
+            }
+            else
+            {
+                AddObjectToSandwich(foodObject.m_heldFoodIndex);
+                m_playerHand.EmptyHand(true);
+                return true;
+            }
+            
         }
         return false;
 
+    }
+}
+
+public class SandwhichType
+{
+    public bool m_hasBottomBread;
+    public bool m_hasTopBread;
+
+    public bool m_hasMeat;
+    public bool m_hasVegies;
+    public bool m_hasSauce;
+
+    public void ResetMe()
+    {
+        m_hasBottomBread = m_hasTopBread = m_hasMeat = m_hasVegies = m_hasSauce = false;
     }
 }
