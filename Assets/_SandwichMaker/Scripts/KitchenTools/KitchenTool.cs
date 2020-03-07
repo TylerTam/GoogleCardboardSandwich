@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class KitchenToolEvent : UnityEngine.Events.UnityEvent { }
+
+
 /// <summary>
 /// A class used to interact with kitchen tools that can be opened or closed.
 /// </summary>
@@ -17,15 +21,33 @@ public class KitchenTool : MonoBehaviour, IInteractable
     public AnimationCurve m_animCurve;
     private float m_percentToClosed;
 
+    private bool m_canBeToggled = true;
+
+    public KitchenToolEvents m_kitchenToolEvents;
+    [System.Serializable]
+    public struct KitchenToolEvents
+    {
+        public KitchenToolEvent m_objectStartingOpen;
+        public KitchenToolEvent m_objectOpened;
+
+        public KitchenToolEvent m_objectStartingClosed;
+        public KitchenToolEvent m_objectClosed;
+        
+    }
 
     public bool InteractionValid()
     {
+        if (!m_canBeToggled) return false;
         switch (m_currentToolState)
         {
             case ToolState.CLOSED:
+                m_kitchenToolEvents.m_objectStartingOpen.Invoke();
                 m_currentToolState = ToolState.OPEN;
+                
                 break;
             case ToolState.OPEN:
+                
+                m_kitchenToolEvents.m_objectStartingClosed.Invoke();
                 m_currentToolState = ToolState.CLOSED;
                 break;
         }
@@ -52,6 +74,21 @@ public class KitchenTool : MonoBehaviour, IInteractable
             yield return null;
         }
 
+        switch (m_currentToolState)
+        {
+            case ToolState.CLOSED:
+                m_kitchenToolEvents.m_objectClosed.Invoke();
+                break;
+            case ToolState.OPEN:
+                m_kitchenToolEvents.m_objectOpened.Invoke();
+                break;
+        }
+
+    }
+
+    public void ChangeToggleState(bool p_activeState)
+    {
+        m_canBeToggled = p_activeState;
     }
 
     /// <summary>
