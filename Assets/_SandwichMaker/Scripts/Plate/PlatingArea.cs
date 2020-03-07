@@ -57,6 +57,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
         public IngredientType m_ingredientType;
     }
     public List<FoodObjects> m_foodObjects;
+    public GameObject m_plateObject;
 
     public AnimationCurve m_platingAnimCurve;
     public float m_platingAnimTime;
@@ -128,7 +129,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     {
 
         GameObject newFood = m_pooler.NewObject(m_foodObjects[p_objectType].m_objectOnSandwich, transform.position, Quaternion.identity);
-        
+        newFood.transform.parent = transform;
 
         //Gets the correct placement of the new food to be placed;
         float currentFoodHeight = 0;
@@ -165,6 +166,9 @@ public class PlatingArea : MonoBehaviour, IInteractable
         m_platingEvents.m_newObjectPlated.Invoke(p_objectType);
     }
 
+    /// <summary>
+    /// Adjusts the plate collider to size up with the height of the sandwich
+    /// </summary>
     private void RecalculatePlateCollider()
     {
         float sizeY = (m_colOriginalPositionY - (m_colOriginalSizeY / 2) + (m_lastPlacedObject.size.y / 2) + m_lastPlacedPos.y);
@@ -204,6 +208,26 @@ public class PlatingArea : MonoBehaviour, IInteractable
         return false;
 
     }
+
+
+    /// <summary>
+    /// Creates an new plate object, and transfers the sandwich over to that
+    /// </summary>
+    public void FinishCurrentSandwich()
+    {
+        HoldablePlate newPlate =  m_pooler.NewObject(m_plateObject, transform.position, Quaternion.identity).GetComponent<HoldablePlate>();
+        newPlate.CreatePlate(m_transformsInSandwhich, m_currentSandwhich);
+        m_currentSandwhich.ResetMe();
+        m_playerHand.PickUpObject(newPlate.gameObject);
+
+        m_transformsInSandwhich.Clear();
+        m_lastPlacedObject = null;
+        m_plateCollider.size = new Vector3(m_plateCollider.size.x, m_colOriginalSizeY, m_plateCollider.size.z);
+        m_plateCollider.center = new Vector3(m_plateCollider.center.x, m_colOriginalPositionY, m_plateCollider.center.z);
+
+    }
+
+    
 }
 
 public class SandwhichType
@@ -218,5 +242,14 @@ public class SandwhichType
     public void ResetMe()
     {
         m_hasBottomBread = m_hasTopBread = m_hasMeat = m_hasVegies = m_hasSauce = false;
+    }
+
+    public void SetSandwhichType(SandwhichType p_newSandwhichType)
+    {
+        m_hasBottomBread = p_newSandwhichType.m_hasBottomBread;
+        m_hasTopBread = p_newSandwhichType.m_hasTopBread;
+        m_hasMeat = p_newSandwhichType.m_hasMeat;
+        m_hasVegies = p_newSandwhichType.m_hasVegies;
+        m_hasSauce = p_newSandwhichType.m_hasSauce;
     }
 }

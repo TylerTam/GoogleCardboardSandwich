@@ -58,10 +58,14 @@ public class PlayerHand : MonoBehaviour
         return m_holdableObject;
     }
 
+    /// <summary>
+    /// Raycasts to check if they can interact with something
+    /// </summary>
     public void PerformInteraction()
     {
         RaycastHit hit;
 
+        ///If there is currently no held object, perform a raycast to search for interactables
         if (m_holdableObject == null)
         {
             if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance, m_interactionLayer))
@@ -73,6 +77,8 @@ public class PlayerHand : MonoBehaviour
                 }
             }
         }
+
+        ///If they are holding an object, call that object to get a layermask from it, which is used to determine if what the player is point at can be interacted with
         else 
         {
             if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance, m_holdableObject.ReturnUsableLayerMask()))
@@ -100,6 +106,10 @@ public class PlayerHand : MonoBehaviour
         p_currentFood.transform.localRotation = Quaternion.identity;
     }
 
+    /// <summary>
+    /// Empties the player's hand, dropping whatever they are currently holding
+    /// </summary>
+    /// <param name="p_objectUsed"></param>
     public void EmptyHand(bool p_objectUsed)
     {
         m_heldObjectTrasform.parent = null;
@@ -116,6 +126,9 @@ public class PlayerHand : MonoBehaviour
         m_heldObjectTrasform = null;
     }
 
+    /// <summary>
+    /// Throws whatever object they are currently holding
+    /// </summary>
     public void ThrowObject()
     {
         if (m_heldObjectTrasform == null) return;
