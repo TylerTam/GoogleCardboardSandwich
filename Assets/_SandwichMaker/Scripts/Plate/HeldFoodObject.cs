@@ -12,7 +12,10 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
     public AnimationCurve m_degradeAnimCurve;
     private bool m_initialized;
     private Vector3 m_originalPosition;
+    private Vector3 m_originalScale;
     private Quaternion m_originalRotation;
+    private Transform m_originalParent;
+    
 
 
     public LayerMask m_usableLayer;
@@ -24,8 +27,10 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
     {
         m_initialized = true;
         m_rb = GetComponent<Rigidbody>();
-        m_originalPosition = transform.position;
-        m_originalRotation = transform.rotation;
+        m_originalPosition = transform.localPosition;
+        m_originalRotation = transform.localRotation;
+        m_originalScale = transform.localScale;
+        m_originalParent = transform.parent;
     }
 
     private void OnEnable()
@@ -42,9 +47,11 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
     public void ResetMe()
     {
         m_rb.isKinematic = true;
-        transform.localScale = Vector3.one;
-        transform.position = m_originalPosition;
-        transform.rotation = m_originalRotation;
+        transform.parent = m_originalParent;
+        transform.localScale = m_originalScale;
+        transform.localPosition = m_originalPosition;
+        transform.localRotation = m_originalRotation;
+        
     }
 
 
