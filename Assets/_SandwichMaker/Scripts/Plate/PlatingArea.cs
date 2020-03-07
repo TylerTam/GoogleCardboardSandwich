@@ -49,6 +49,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     [Tooltip ("Used to determine how high to start the placing animation")]
     public float m_startAnimHeight = 1;
     private BoxCollider m_lastPlacedObject;
+    private Vector3 m_lastPlacedPos;
     #endregion
 
     private void Start()
@@ -81,18 +82,22 @@ public class PlatingArea : MonoBehaviour, IInteractable
         //Gets the correct placement of the new food to be placed;
 
         float currentFoodHeight = 0;
+
+        //If the player has just placed the first bread for the sandwich
         if (m_lastPlacedObject == null)
         {
+            //Get the collider of the plate, and place the first bread on that
             currentFoodHeight = transform.position.y + (GetComponent<BoxCollider>().size.y / 2);
             Debug.DrawLine(transform.position, transform.position + new Vector3(0, GetComponent<BoxCollider>().size.y / 2, 0), Color.magenta, 5);
         }
         else
         {
-            currentFoodHeight = (m_lastPlacedObject.size.y / 2) + m_lastPlacedObject.transform.position.y; 
+            currentFoodHeight = (m_lastPlacedObject.size.y / 2) + m_lastPlacedPos.y; 
         }
         
         m_lastPlacedObject = newFood.GetComponent<BoxCollider>();
         currentFoodHeight += m_lastPlacedObject.size.y/2;
+        m_lastPlacedPos = new Vector3(0,currentFoodHeight,0);
 
         newFood.transform.position = new Vector3(newFood.transform.position.x,currentFoodHeight + m_startAnimHeight , newFood.transform.position.z);
 
@@ -116,9 +121,10 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// <returns></returns>
     public bool InteractionValid()
     {
-        if (m_playerHand.CurrentHeldFood() != null)
+        HeldFoodObject foodObject = m_playerHand.CurrentHeldObject().ReturnCurrentObject().GetComponent<HeldFoodObject>();
+        if (foodObject != null)
         {
-            AddObjectToSandwich(m_playerHand.CurrentHeldFood().m_heldFoodIndex);
+            AddObjectToSandwich(foodObject.m_heldFoodIndex);
             m_playerHand.EmptyHand(true);
             return true;
         }

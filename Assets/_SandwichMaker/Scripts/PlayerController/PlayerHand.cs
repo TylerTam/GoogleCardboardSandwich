@@ -7,7 +7,8 @@ using UnityEngine;
 public class PlayerHandEvent : UnityEngine.Events.UnityEvent { }
 public class PlayerHand : MonoBehaviour
 {
-    private HeldFoodObject m_heldFoodObject;
+    private IHoldable m_holdableObject;
+    private Transform m_heldObjectTrasform;
 
 
     public static PlayerHand Instance;
@@ -52,62 +53,78 @@ public class PlayerHand : MonoBehaviour
         m_pooler = ObjectPooler.instance;
     }
 
-    public HeldFoodObject CurrentHeldFood()
+    public IHoldable CurrentHeldObject()
     {
-        return m_heldFoodObject;
+        return m_holdableObject;
     }
 
     public void PerformInteraction()
     {
         RaycastHit hit;
-        if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance, m_interactionLayer))
+
+        if (m_holdableObject == null)
         {
-            ///If the interaction hit cannot be performed, invoke the failed event
-            if (!hit.transform.GetComponent<IInteractable>().InteractionValid())
+            if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance, m_interactionLayer))
             {
-                m_playerEvents.m_interactionFailed.Invoke();
+                ///If the interaction hit cannot be performed, invoke the failed event
+                if (!hit.transform.GetComponent<IInteractable>().InteractionValid())
+                {
+                    m_playerEvents.m_interactionFailed.Invoke();
+                }
             }
         }
-        else
+        else 
         {
-            ThrowObject();
+            if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance, m_holdableObject.ReturnUsableLayerMask()))
+            {
+                ///If the interaction hit cannot be performed, invoke the failed event
+                if (!hit.transform.GetComponent<IInteractable>().InteractionValid())
+                {
+                    m_playerEvents.m_interactionFailed.Invoke();
+                }
+            }
+            else
+            {
+                ThrowObject();
+            }
         }
+            
     }
 
-    public void PickUpFood(GameObject p_currentFood)
+    public void PickUpObject(GameObject p_currentFood)
     {
-        m_heldFoodObject = p_currentFood.GetComponent<HeldFoodObject>();
+        m_holdableObject = p_currentFood.GetComponent<IHoldable>();
+        m_heldObjectTrasform = p_currentFood.transform;
         p_currentFood.transform.position = m_heldFoodPosition.position;
         p_currentFood.transform.parent = m_heldFoodPosition;
         p_currentFood.transform.localRotation = Quaternion.identity;
     }
 
-    public void EmptyHand(bool p_returnToPool)
+    public void EmptyHand(bool p_objectUsed)
     {
-        m_heldFoodObject.transform.parent = null;
-        if (p_returnToPool)
+        m_heldObjectTrasform.parent = null;
+        if (p_objectUsed)
         {
-            m_pooler.ReturnToPool(m_heldFoodObject.gameObject);
+            m_holdableObject.UseObject();
         }
         else
         {
-            m_heldFoodObject.DropFoodItem();
+            m_holdableObject.DropObject();
         }
-        
-        m_heldFoodObject = null;
+
+        m_holdableObject = null;
+        m_heldObjectTrasform = null;
     }
 
     public void ThrowObject()
     {
-        if (m_heldFoodObject == null) return;
+        if (m_heldObjectTrasform == null) return;
         RaycastHit hit;
         if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_aimAssistDistance, m_aimAssistMask))
         {
             m_heldFoodPosition.LookAt(hit.point);
         }
-        Rigidbody rb = m_heldFoodObject.GetComponent<Rigidbody>();
-        rb.isKinematic = false;
-        rb.velocity = m_heldFoodPosition.forward * m_throwForce;
+        m_holdableObject.ThrowObject(m_throwForce, m_heldObjectTrasform.forward);
         m_heldFoodPosition.localRotation = Quaternion.identity;
         EmptyHand(false);
     }
