@@ -122,6 +122,14 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 2663143702213129958, guid: 2e8c954e8649423449e7f8ae269830db,
       type: 3}
     m_ingredientType: 2
+  - m_ingredientName: Cooked_UnCut_Lettuce
+    m_objectOnSandwich: {fileID: 9041790165219209416, guid: 739bfb44ab6dacc449082417224df28d,
+      type: 3}
+    m_ingredientType: 3
+  - m_ingredientName: PeanutButter
+    m_objectOnSandwich: {fileID: 7613376650820609861, guid: 824f7d1832e343c409e1606007ea9614,
+      type: 3}
+    m_ingredientType: 3
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:

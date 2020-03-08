@@ -55,3 +55,4 @@ FOOD INDEX
 11 - Cut Lettuce
 12 - Cut Cooked Lettuce
 13 - Cooked Lettuce
+14 - Peanut Butter
