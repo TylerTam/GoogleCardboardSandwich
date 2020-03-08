@@ -182,6 +182,26 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 6412912737576989866, guid: bf27439a01886f743b0e37e41dbe2e75,
       type: 3}
     m_ingredientType: 1
+  - m_ingredientName: Cheese
+    m_objectOnSandwich: {fileID: 5916701676492233781, guid: f4faf54d69a6c9844975faad7b276c71,
+      type: 3}
+    m_ingredientType: 3
+  - m_ingredientName: Pickle
+    m_objectOnSandwich: {fileID: 1678359237611932053, guid: ab303304e409310429732a7499e98b41,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cut_Pickle
+    m_objectOnSandwich: {fileID: 74460357770935147, guid: f70cda69dc00e94479c0b2754a0219eb,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Orange
+    m_objectOnSandwich: {fileID: 4554618162964001951, guid: 9a4e90d5c3b3e3341a73dd362852943e,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cut_Orange
+    m_objectOnSandwich: {fileID: 3026664774407793934, guid: 210542c8e1fa2374b8cc11556f6c6cbd,
+      type: 3}
+    m_ingredientType: 2
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:

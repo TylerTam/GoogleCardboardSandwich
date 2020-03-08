@@ -43,31 +43,38 @@ TODO:
 
 
 FOOD INDEX
-0 - Bread
-1 - Ash
-2 - Meat Raw
-3 - Meat Cooked
-4 - Uncooked Egg
-5 - Cooked Egg
-6 - Ketchup
-7 - Mustard
-8 - Cut Uncooked Meat
-9 - Cut Cooked Meat
-10 - Uncut Lettuce
-11 - Cut Lettuce
-12 - Cut Cooked Lettuce
-13 - Cooked Lettuce
-14 - Peanut Butter
-15 - Jam
-16 - Mushroom
-17 - Cooked Mushroom
-18 - Cut Mushroom
-19 - Cooked Cut Mushroom
-20 - Tomato
-21 - Cut Tomato
-22 - Bacon
-23 - Cooked Bacon
-24 - Fish
-25 - Cooked Fish
-26 - Cut Fish
-27 - Cooked Cut Fish
+0 -	Bread	-	Bread
+1 - Sauce	-	Ash
+2 - Meat	-	Meat Raw
+3 - Meat	-	Meat Cooked
+4 - Meat	-	Uncooked Egg
+5 - Meat	-	Cooked Egg
+6 - Sauce	-	Ketchup
+7 - Sauce	-	Mustard
+8 - Meat	-	Cut Uncooked Meat
+9 - Meat	-	Cut Cooked Meat
+10 - Veg	-	Uncut Lettuce
+11 - Veg	-	Cut Lettuce
+12 - Veg	-	Cut Cooked Lettuce
+13 - Veg	-	Cooked Lettuce
+14 - Sauce	-	Peanut Butter
+15 - Sauce	-	Jam
+16 - Veg	-	Mushroom
+17 - Veg	-	Cooked Mushroom
+18 - Veg	-	Cut Mushroom
+19 - Veg	-	Cooked Cut Mushroom
+20 - Veg	-	Tomato
+21 - Veg	-	Cut Tomato
+22 - Meat	-	Bacon
+23 - Meat	-	Cooked Bacon
+24 - Meat	-	Fish
+25 - Meat	-	Cooked Fish
+26 - Meat	-	Cut Fish
+27 - Meat	-	Cooked Cut Fish
+28 - Sauce	-	Cheese
+29 - Veg	-	Pickle
+30 - Veg	-	Cut Pickle
+31 - Veg	-	Orange
+32 - Veg	-	Cut Orange
+33 - Veg	-	Banana
+34 - Veg	-	Cut Banana
