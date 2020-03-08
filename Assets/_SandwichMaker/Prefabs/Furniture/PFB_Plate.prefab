@@ -110,6 +110,18 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 8427266481651896416, guid: 3f3e731428ceab64ead5722a28961448,
       type: 3}
     m_ingredientType: 1
+  - m_ingredientName: Lettuce
+    m_objectOnSandwich: {fileID: 6511974594550061789, guid: eea4aea9938fe764f90784566b126dcf,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cut_Lettuce
+    m_objectOnSandwich: {fileID: 4570303585422874318, guid: 1fc95da86e808984892f26e2d761887f,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cooked_Cut_Lettuce
+    m_objectOnSandwich: {fileID: 2663143702213129958, guid: 2e8c954e8649423449e7f8ae269830db,
+      type: 3}
+    m_ingredientType: 2
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:

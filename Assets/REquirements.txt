@@ -51,3 +51,7 @@ FOOD INDEX
 7 - Mustard
 8 - Cut Uncooked Meat
 9 - Cut Cooked Meat
+10 - Uncut Lettuce
+11 - Cut Lettuce
+12 - Cut Cooked Lettuce
+13 - Cooked Lettuce
