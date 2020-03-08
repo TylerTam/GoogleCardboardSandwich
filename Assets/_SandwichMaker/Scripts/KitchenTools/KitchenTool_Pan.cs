@@ -105,7 +105,6 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
             currentCooked.UseObject();
             currentCooked.SetColliderState(true);
             int currentFoodIndex = 0;
-            print("Cooked: " + currentFoodIndex);
             if (CanBeCooked(currentCooked.m_heldFoodIndex, out currentFoodIndex))
             {
                 

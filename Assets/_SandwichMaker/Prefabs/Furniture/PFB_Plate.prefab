@@ -150,6 +150,22 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 6069380548888188439, guid: 1fed030c6f406364a86c4e6cf37d4afd,
       type: 3}
     m_ingredientType: 2
+  - m_ingredientName: Tomato
+    m_objectOnSandwich: {fileID: 9194863405742960689, guid: 3588aa2058bf1144484d5dd6098d7cfb,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cut_Tomato
+    m_objectOnSandwich: {fileID: 6355926646802468852, guid: a50eb0b956dba8b4eaa6baeff8ada52a,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Bacon
+    m_objectOnSandwich: {fileID: 7725232320323606960, guid: a314f3b78c25bc34fa9f6f596c47bb30,
+      type: 3}
+    m_ingredientType: 1
+  - m_ingredientName: Cooked_Bacon
+    m_objectOnSandwich: {fileID: 800539941136183848, guid: 5ff5eb584a3ca6b41b4d3fef1bfb7bdc,
+      type: 3}
+    m_ingredientType: 1
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:

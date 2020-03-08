@@ -63,3 +63,7 @@ FOOD INDEX
 17 - Cooked Mushroom
 18 - Cut Mushroom
 19 - Cooked Cut Mushroom
+20 - Tomato
+21 - Cut Tomato
+22 - Bacon
+23 - Cooked Bacon
