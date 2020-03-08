@@ -134,6 +134,22 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 12958794257994831, guid: 81628fa354dda3a4cbcf7c841ce645e7,
       type: 3}
     m_ingredientType: 3
+  - m_ingredientName: Mushroom
+    m_objectOnSandwich: {fileID: 1771439885401811520, guid: 350858b85a05ba346a414822763588df,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cooked_Mushroom
+    m_objectOnSandwich: {fileID: 7134515601198325704, guid: 3ef1641a8d6f6a847a7a33bb76d63eac,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cut_Mushroom
+    m_objectOnSandwich: {fileID: 4424395191943929908, guid: 3dd713bfc63ce9b4ab5d1ba05151237e,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cooked_Cut_Mushroom
+    m_objectOnSandwich: {fileID: 6069380548888188439, guid: 1fed030c6f406364a86c4e6cf37d4afd,
+      type: 3}
+    m_ingredientType: 2
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:

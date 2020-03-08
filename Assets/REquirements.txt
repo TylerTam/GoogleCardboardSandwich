@@ -1,4 +1,6 @@
-Build a Sandwich Making Simulator The submission will be a sandwich making game utilizing Unity3D and Google Cardboard SDK. Utilizing the gaze, please build the application based on instructions below. Please use whatever 3D assets you prefer. � Have two pieces of bread you can dress with different kinds of toppings. � Needs a menu where user can drag and drop topping on to the bread � Click done to show the final closed sandwich
+Build a Sandwich Making Simulator The submission will be a sandwich making game utilizing Unity3D and Google Cardboard SDK. Utilizing the gaze, 
+please build the application based on instructions below. Please use whatever 3D assets you prefer. � Have two pieces of bread you can dress with 
+different kinds of toppings. � Needs a menu where user can drag and drop topping on to the bread � Click done to show the final closed sandwich
 
 Note: Be creative with the way the choices are presented and user interacts with dressing the bread. Make Badass sandwiches!
 
@@ -56,3 +58,8 @@ FOOD INDEX
 12 - Cut Cooked Lettuce
 13 - Cooked Lettuce
 14 - Peanut Butter
+15 - Jam
+16 - Mushroom
+17 - Cooked Mushroom
+18 - Cut Mushroom
+19 - Cooked Cut Mushroom
