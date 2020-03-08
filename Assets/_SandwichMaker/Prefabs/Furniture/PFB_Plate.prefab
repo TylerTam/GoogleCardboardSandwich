@@ -202,6 +202,14 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 3026664774407793934, guid: 210542c8e1fa2374b8cc11556f6c6cbd,
       type: 3}
     m_ingredientType: 2
+  - m_ingredientName: Banana
+    m_objectOnSandwich: {fileID: 8049175482460524108, guid: 609c93770de29b24db3d370191d935a1,
+      type: 3}
+    m_ingredientType: 2
+  - m_ingredientName: Cut_Banana
+    m_objectOnSandwich: {fileID: 5446893922719396884, guid: cd4e89b9e9709de46820bf0a624a41fb,
+      type: 3}
+    m_ingredientType: 2
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:
