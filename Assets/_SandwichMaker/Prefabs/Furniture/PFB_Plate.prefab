@@ -130,6 +130,10 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 7613376650820609861, guid: 824f7d1832e343c409e1606007ea9614,
       type: 3}
     m_ingredientType: 3
+  - m_ingredientName: Jam
+    m_objectOnSandwich: {fileID: 12958794257994831, guid: 81628fa354dda3a4cbcf7c841ce645e7,
+      type: 3}
+    m_ingredientType: 3
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:
