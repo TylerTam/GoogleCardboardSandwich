@@ -24,6 +24,9 @@ public class PlayerHand : MonoBehaviour
     public Transform m_heldFoodPosition;
     public float m_interactableDistance;
 
+    public LayerMask m_sandwhichHandinMask;
+    private bool m_holdingFinalSandwich;
+
     #endregion
 
     #region AimAssist
@@ -79,9 +82,10 @@ public class PlayerHand : MonoBehaviour
         }
 
         ///If they are holding an object, call that object to get a layermask from it, which is used to determine if what the player is point at can be interacted with
-        else 
+        else
         {
-            if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance, m_holdableObject.ReturnUsableLayerMask()))
+
+            if (Physics.Raycast(m_mainCamera.transform.position, m_mainCamera.transform.forward, out hit, m_interactableDistance,(m_holdingFinalSandwich)? m_sandwhichHandinMask :  m_holdableObject.ReturnUsableLayerMask()))
             {
                 ///If the interaction hit cannot be performed, invoke the failed event
                 if (!hit.transform.GetComponent<IInteractable>().InteractionValid())
@@ -112,6 +116,7 @@ public class PlayerHand : MonoBehaviour
     /// <param name="p_objectUsed"></param>
     public void EmptyHand(bool p_objectUsed, bool p_discardItem = true)
     {
+        SetHoldingSandwhichState(false);
         m_heldObjectTrasform.parent = null;
         if (p_discardItem)
         {
@@ -143,6 +148,11 @@ public class PlayerHand : MonoBehaviour
         m_holdableObject.ThrowObject(m_throwForce, m_heldObjectTrasform.forward);
         m_heldFoodPosition.localRotation = Quaternion.identity;
         EmptyHand(false);
+    }
+
+    public void SetHoldingSandwhichState(bool p_active)
+    {
+        m_holdingFinalSandwich = p_active;
     }
 
     private void OnDrawGizmos()

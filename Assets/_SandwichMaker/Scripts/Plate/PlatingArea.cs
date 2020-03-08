@@ -227,6 +227,8 @@ public class PlatingArea : MonoBehaviour, IInteractable
         m_plateCollider.size = new Vector3(m_plateCollider.size.x, m_colOriginalSizeY, m_plateCollider.size.z);
         m_plateCollider.center = new Vector3(m_plateCollider.center.x, m_colOriginalPositionY, m_plateCollider.center.z);
 
+        m_playerHand.SetHoldingSandwhichState(true);
+
     }
 
     
