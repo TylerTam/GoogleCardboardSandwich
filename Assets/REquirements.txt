@@ -67,3 +67,7 @@ FOOD INDEX
 21 - Cut Tomato
 22 - Bacon
 23 - Cooked Bacon
+24 - Fish
+25 - Cooked Fish
+26 - Cut Fish
+27 - Cooked Cut Fish

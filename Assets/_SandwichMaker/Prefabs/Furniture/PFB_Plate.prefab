@@ -166,6 +166,22 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 800539941136183848, guid: 5ff5eb584a3ca6b41b4d3fef1bfb7bdc,
       type: 3}
     m_ingredientType: 1
+  - m_ingredientName: Fish
+    m_objectOnSandwich: {fileID: 8225512643927554451, guid: 92f707d233f205b46aab9a8396f0a3a3,
+      type: 3}
+    m_ingredientType: 1
+  - m_ingredientName: Cooked_Fish
+    m_objectOnSandwich: {fileID: 4491264561684068946, guid: 447c683c25b41704784e09a02cffcdc7,
+      type: 3}
+    m_ingredientType: 1
+  - m_ingredientName: Cut_Fish
+    m_objectOnSandwich: {fileID: 6640417638363023349, guid: 0e2f4f0a6d5c15d4b8b94795120fc563,
+      type: 3}
+    m_ingredientType: 1
+  - m_ingredientName: Cooked_Cut_Fish
+    m_objectOnSandwich: {fileID: 6412912737576989866, guid: bf27439a01886f743b0e37e41dbe2e75,
+      type: 3}
+    m_ingredientType: 1
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:
