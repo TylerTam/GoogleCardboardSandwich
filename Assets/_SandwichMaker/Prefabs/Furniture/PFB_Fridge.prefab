@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5011414569246686433}
   - component: {fileID: 2465223553751022266}
   - component: {fileID: 2465223553751022267}
+  - component: {fileID: 8525670534090282138}
   m_Layer: 10
   m_Name: FridgeDoor
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42721818407784983}
-  m_LocalRotation: {x: -0, y: 0.8660254, z: -0, w: 0.49999997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5871422, y: 0.000000054013135, z: 1.2356765}
   m_LocalScale: {x: 0.79239345, y: 0.26638687, z: 1}
   m_Children:
@@ -36,7 +37,7 @@ Transform:
   - {fileID: 4733140174479863601}
   m_Father: {fileID: 7443481566678916118}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 120.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6998953315302420085
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -175,6 +176,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.005255, y: 22.056877, z: 0.1}
   m_Center: {x: -2.001938, y: 11.035482, z: 0.34}
+--- !u!114 &8525670534090282138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42721818407784983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &2465223553134193434
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +602,7 @@ GameObject:
   - component: {fileID: 1428723525768811185}
   - component: {fileID: 5363604026060064216}
   - component: {fileID: 6633353001114171198}
+  - component: {fileID: 5617120558283524470}
   m_Layer: 10
   m_Name: Fridge_Cupboard
   m_TagString: Untagged
@@ -792,6 +807,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14, y: 1.3635083, z: 2.35}
   m_Center: {x: -1.31, y: 0.014832914, z: 0}
+--- !u!114 &5617120558283524470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414586631282637474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1001 &201228431053434390
 PrefabInstance:
   m_ObjectHideFlags: 0

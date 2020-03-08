@@ -186,6 +186,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// <returns></returns>
     public bool InteractionValid()
     {
+        if (m_playerHand.CurrentHeldObject() == null) return false;
         HeldFoodObject foodObject = m_playerHand.CurrentHeldObject().ReturnCurrentObject().GetComponent<HeldFoodObject>();
         if (foodObject != null)
         {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4462875996073483554}
   - component: {fileID: 4462875996073483564}
   - component: {fileID: 4462875996073483565}
+  - component: {fileID: 3285045519895564884}
   m_Layer: 8
   m_Name: Cutting Board
   m_TagString: Untagged
@@ -116,6 +117,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.05, y: 0.12, z: 1.82}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3285045519895564884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462875996073483555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &4462875996781270189
 GameObject:
   m_ObjectHideFlags: 0
