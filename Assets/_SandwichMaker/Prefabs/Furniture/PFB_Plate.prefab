@@ -94,6 +94,22 @@ MonoBehaviour:
     m_objectOnSandwich: {fileID: 7150173965893033779, guid: 4c506d21ef3eeb34d90d100a977d135e,
       type: 3}
     m_ingredientType: 1
+  - m_ingredientName: Ketchup
+    m_objectOnSandwich: {fileID: 6160481512706944873, guid: 4db1d5d35f32b6742959ba9354a0cabe,
+      type: 3}
+    m_ingredientType: 3
+  - m_ingredientName: Mustard
+    m_objectOnSandwich: {fileID: 3192457182172741136, guid: ebb7eb96c5d93404491f896bc12627ce,
+      type: 3}
+    m_ingredientType: 3
+  - m_ingredientName: UnCooked Cut Meat
+    m_objectOnSandwich: {fileID: 3869217963273436329, guid: 3b9537ef85299f248993009067a5c7f0,
+      type: 3}
+    m_ingredientType: 1
+  - m_ingredientName: Cooked Cut Meat
+    m_objectOnSandwich: {fileID: 8427266481651896416, guid: 3f3e731428ceab64ead5722a28961448,
+      type: 3}
+    m_ingredientType: 1
   m_plateObject: {fileID: 3470435305904853364, guid: 81beb44463695b849a70acf57197bfc2,
     type: 3}
   m_platingAnimCurve:

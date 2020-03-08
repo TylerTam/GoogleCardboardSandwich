@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &211405230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993850328572760976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df1d53cc23a349468b73dcad467bdcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_heldFoodIndex: 0
+  m_degradeTime: 3
+  m_degradeAnimCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_collider: {fileID: 7993850328572760978}
+  m_usableLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!1001 &1783474520090817077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8516289462987202981, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_Name
+      value: PFB_0_HoldableFood_Cooked Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202984, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 551d098536f14af4a8fb6267c922f574, type: 3}
+--- !u!1 &7993850328572760976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8516289462987202981, guid: 551d098536f14af4a8fb6267c922f574,
+    type: 3}
+  m_PrefabInstance: {fileID: 1783474520090817077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7993850328572760978 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8516289462987202983, guid: 551d098536f14af4a8fb6267c922f574,
+    type: 3}
+  m_PrefabInstance: {fileID: 1783474520090817077}
+  m_PrefabAsset: {fileID: 0}

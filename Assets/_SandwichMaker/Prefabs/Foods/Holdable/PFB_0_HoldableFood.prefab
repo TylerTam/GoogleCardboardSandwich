@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8516289462987202980}
   - component: {fileID: 8516289462987202987}
   m_Layer: 8
-  m_Name: PFB_HoldableFood
+  m_Name: PFB_0_HoldableFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_collider: {fileID: 8516289462987202983}
   m_usableLayer:
     serializedVersion: 2
     m_Bits: 256

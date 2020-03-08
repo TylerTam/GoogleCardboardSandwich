@@ -15,8 +15,8 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
     private Vector3 m_originalScale;
     private Quaternion m_originalRotation;
     private Transform m_originalParent;
-    
 
+    public BoxCollider m_collider;
 
     public LayerMask m_usableLayer;
     private void Start()
@@ -54,6 +54,10 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
         
     }
 
+    public void SetColliderState(bool p_newState)
+    {
+        m_collider.enabled = p_newState;
+    }
 
     /// <summary>
     /// The coroutine that shrinks the food, and recycles it into the object pooler

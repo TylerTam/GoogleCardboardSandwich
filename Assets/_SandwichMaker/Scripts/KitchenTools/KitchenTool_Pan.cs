@@ -87,21 +87,28 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
                 return true;
             }
         }
-        return false;
+        return true;
     }
 
     private IEnumerator StartCooking(GameObject p_cookedObject)
     {
         m_isCooking = true;
-        yield return new WaitForSeconds(m_cookingTime);
         HeldFoodObject currentCooked = p_cookedObject.GetComponent<HeldFoodObject>();
+        currentCooked.SetColliderState(false);
+
+        yield return new WaitForSeconds(m_cookingTime);
+        
         if(currentCooked != null)
         {
 
             currentCooked.ResetMe();
+            currentCooked.UseObject();
+            currentCooked.SetColliderState(true);
             int currentFoodIndex = 0;
+            print("Cooked: " + currentFoodIndex);
             if (CanBeCooked(currentCooked.m_heldFoodIndex, out currentFoodIndex))
             {
+                
                 m_collider.enabled = false;
                 m_currentCookedObject = m_cookedVersions[currentFoodIndex].m_cookedVersion;
                 m_currentCookedObject.SetActive(true);

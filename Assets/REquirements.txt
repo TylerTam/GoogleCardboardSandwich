@@ -47,3 +47,7 @@ FOOD INDEX
 3 - Meat Cooked
 4 - Uncooked Egg
 5 - Cooked Egg
+6 - Ketchup
+7 - Mustard
+8 - Cut Uncooked Meat
+9 - Cut Cooked Meat
