@@ -102,7 +102,7 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
         return m_usableLayer;
     }
 
-    public void UseObject()
+    public virtual void UseObject()
     {
         ResetMe();
     }

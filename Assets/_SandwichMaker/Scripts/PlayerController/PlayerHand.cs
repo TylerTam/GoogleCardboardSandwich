@@ -110,16 +110,19 @@ public class PlayerHand : MonoBehaviour
     /// Empties the player's hand, dropping whatever they are currently holding
     /// </summary>
     /// <param name="p_objectUsed"></param>
-    public void EmptyHand(bool p_objectUsed)
+    public void EmptyHand(bool p_objectUsed, bool p_discardItem = true)
     {
         m_heldObjectTrasform.parent = null;
-        if (p_objectUsed)
+        if (p_discardItem)
         {
-            m_holdableObject.UseObject();
-        }
-        else
-        {
-            m_holdableObject.DropObject();
+            if (p_objectUsed)
+            {
+                m_holdableObject.UseObject();
+            }
+            else
+            {
+                m_holdableObject.DropObject();
+            }
         }
 
         m_holdableObject = null;

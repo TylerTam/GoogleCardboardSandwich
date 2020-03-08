@@ -53,6 +53,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     [System.Serializable]
     public struct FoodObjects
     {
+        public string m_ingredientName;
         public GameObject m_objectOnSandwich;
         public IngredientType m_ingredientType;
     }

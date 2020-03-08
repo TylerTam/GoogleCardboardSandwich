@@ -38,3 +38,12 @@ TODO:
 -Fix player collider so that it will adjust with how big the sandwich is
 -Add fridge model
 -Do smething with peanut butter and knife or some shit
+
+
+FOOD INDEX
+0 - Bread
+1 - Ash
+2 - Meat Raw
+3 - Meat Cooked
+4 - Uncooked Egg
+5 - Cooked Egg
