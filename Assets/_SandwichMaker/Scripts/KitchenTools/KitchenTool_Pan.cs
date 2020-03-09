@@ -59,6 +59,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
             GameObject currentItem = m_playerHand.CurrentHeldObject().ReturnCurrentObject();
             m_playerHand.EmptyHand(false, false);
             currentItem.transform.position = m_cookingSpot.position;
+            currentItem.transform.rotation = m_cookingSpot.rotation;
             StartCoroutine(StartCooking(currentItem));
             return true;
         }
@@ -69,6 +70,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
                 GameObject currentItem = m_playerHand.CurrentHeldObject().ReturnCurrentObject();
                 m_playerHand.EmptyHand(false, false);
                 currentItem.transform.position = m_cookingSpot.position;
+                currentItem.transform.rotation = m_cookingSpot.rotation;
                 StartCoroutine(StartCooking(currentItem));
                 return true;
             }

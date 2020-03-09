@@ -242,6 +242,7 @@ public class SandwhichType
     public bool m_hasMeat;
     public bool m_hasVegies;
     public bool m_hasSauce;
+    public bool m_noSpecific;
 
     public void ResetMe()
     {
@@ -255,5 +256,64 @@ public class SandwhichType
         m_hasMeat = p_newSandwhichType.m_hasMeat;
         m_hasVegies = p_newSandwhichType.m_hasVegies;
         m_hasSauce = p_newSandwhichType.m_hasSauce;
+    }
+    public bool MatchesSandwich(SandwhichType p_matchSandwich, out int p_errorType)
+    {
+        p_errorType = 0;
+        if (!m_hasBottomBread)
+        {
+            return false;
+        }
+        if (!m_hasTopBread)
+        {
+
+            p_errorType = 1;
+            return false;
+        }
+
+        if (p_matchSandwich.m_hasMeat)
+        {
+            if (!m_hasMeat)
+            {
+                p_errorType = 2;
+                return false;
+            }
+        }
+
+        if (p_matchSandwich.m_hasSauce)
+        {
+            if (!m_hasSauce)
+            {
+                p_errorType = 2;
+                return false;
+            }
+        }
+        if (p_matchSandwich.m_hasVegies)
+        {
+            if (m_hasVegies)
+            {
+                p_errorType = 2;
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void RandomizeSandwichType()
+    {
+        m_noSpecific = false;
+        m_hasMeat = (Random.Range(0f, 1f) > .5f) ? true : false;
+        m_hasVegies = (Random.Range(0f, 1f) > .5f) ? true : false;
+        m_hasSauce = (Random.Range(0f, 1f) > .5f) ? true : false;
+
+        if(m_hasMeat == m_hasVegies == m_hasSauce == false)
+        {
+            m_noSpecific = true;
+        }
+    }
+
+    public bool GenericSandwich()
+    {
+        return m_hasMeat == m_hasVegies == m_hasSauce == false;
     }
 }

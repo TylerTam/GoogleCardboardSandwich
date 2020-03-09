@@ -17,8 +17,7 @@ GameObject:
   - component: {fileID: 4054739726311432514}
   - component: {fileID: 6283821200243981038}
   - component: {fileID: 8424695579193071373}
-  - component: {fileID: 7458417289280265902}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: drawer01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,16 +203,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.794441, y: 0.05, z: 1.2183194}
   m_Center: {x: 0.7009561, y: 0.99, z: 0.03910491}
---- !u!114 &7458417289280265902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049853229287243159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []

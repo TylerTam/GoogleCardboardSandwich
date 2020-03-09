@@ -8,7 +8,7 @@ public class HoldablePlate : MonoBehaviour, IHoldable
     public Rigidbody m_plateRigidbody;
     public float m_lifespan;
     public AnimationCurve m_lifespanAnimCurve;
-    private SandwhichType m_currentSandwhichType = new SandwhichType();
+    public SandwhichType m_currentSandwhichType = new SandwhichType();
 
     public LayerMask m_interactingLayer;
     private ObjectPooler m_pooler;
@@ -125,6 +125,11 @@ public class HoldablePlate : MonoBehaviour, IHoldable
 
         m_sandwhichObjects.Clear();
         m_pooler.ReturnToPool(gameObject);
+    }
+
+    public bool IsCorrectSandwich(SandwhichType p_checkSandwich, out int p_errorType)
+    {
+        return p_checkSandwich.MatchesSandwich(m_currentSandwhichType, out p_errorType);
     }
 }
 
