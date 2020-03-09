@@ -565,6 +565,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344657580}
   m_CullTransparentMesh: 0
+--- !u!1 &429014223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4470252313443560936, guid: cacd0cedd8937a84ebb4b637829ea529,
+    type: 3}
+  m_PrefabInstance: {fileID: 1247959384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &429014227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429014223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad4a23fe72e1d541b4992f9fa817cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactableLayer:
+    serializedVersion: 2
+    m_Bits: 1792
+  m_raycastLength: 20
+  m_fireSpot: {fileID: 2008403233}
 --- !u!4 &459317623 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4462875996073483554, guid: 8f4659088179953469b06892fabe7aba,
@@ -2408,6 +2431,8 @@ MonoBehaviour:
     m_request_veg: {fileID: 1505796146}
     m_request_sauce: {fileID: 487469204}
     m_requestNone: {fileID: 344657580}
+  m_renderers: []
+  m_highlightMaterial: {fileID: 0}
 --- !u!65 &1443263843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3982,6 +4007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_platingArea: {fileID: 1613894658}
+  m_renderers: []
+  m_highlightMaterial: {fileID: 0}
 --- !u!65 &2010568354
 BoxCollider:
   m_ObjectHideFlags: 0
