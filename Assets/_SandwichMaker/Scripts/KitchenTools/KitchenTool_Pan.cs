@@ -20,6 +20,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         public GameObject m_cookedVersion;
         public int m_uncookedVersionIndex;
     }
+    public CookingEvents m_cookingEvents;
     [System.Serializable]
     public struct CookingEvents
     {
@@ -97,6 +98,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         m_isCooking = true;
         HeldFoodObject currentCooked = p_cookedObject.GetComponent<HeldFoodObject>();
         currentCooked.SetColliderState(false);
+        m_cookingEvents.m_startCooking.Invoke();
 
         yield return new WaitForSeconds(m_cookingTime);
         
@@ -117,6 +119,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         }
 
         m_isCooking = false;
+        m_cookingEvents.m_finishedCooking.Invoke();
 
     }
 }

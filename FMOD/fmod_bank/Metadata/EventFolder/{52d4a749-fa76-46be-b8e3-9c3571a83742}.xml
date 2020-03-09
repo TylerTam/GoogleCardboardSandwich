@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EventFolder" id="{52d4a749-fa76-46be-b8e3-9c3571a83742}">
+		<property name="name">
+			<value>Splats</value>
+		</property>
+		<relationship name="folder">
+			<destination>{f01a03aa-aee4-40ea-8f77-82ed91537c6c}</destination>
+		</relationship>
+	</object>
+</objects>

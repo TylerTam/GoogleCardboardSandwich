@@ -289,6 +289,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1315234174845269160, guid: 00f1c02c3b12b3e4e8d6ee5d5d15ead6,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sounds/Splats/BreadSplat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315234174845269160, guid: 00f1c02c3b12b3e4e8d6ee5d5d15ead6,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315234174845269160, guid: 00f1c02c3b12b3e4e8d6ee5d5d15ead6,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3390896910721154605, guid: 00f1c02c3b12b3e4e8d6ee5d5d15ead6,
         type: 3}
       propertyPath: m_Name

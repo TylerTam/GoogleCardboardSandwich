@@ -1818,7 +1818,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4470252312033294945, guid: cacd0cedd8937a84ebb4b637829ea529, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cacd0cedd8937a84ebb4b637829ea529, type: 3}
 --- !u!1 &1286823208
 GameObject:
@@ -2285,12 +2286,12 @@ GameObject:
   - component: {fileID: 1417693355}
   - component: {fileID: 1417693354}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1417693354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,7 +2323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417693353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2361434, y: 2.391258, z: -2.7716453}
+  m_LocalPosition: {x: -0.565, y: 2.391258, z: -6.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3897,6 +3898,19 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1247959384}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2008403236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008403232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!20 &2008403237 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4470252312033294944, guid: cacd0cedd8937a84ebb4b637829ea529,
@@ -4252,6 +4266,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162747173}
     m_Modifications:
+    - target: {fileID: 5011414569246686433, guid: 8f05c36b941bcb1438eb00b91ece47d8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5843375251274493445, guid: 8f05c36b941bcb1438eb00b91ece47d8,
         type: 3}
       propertyPath: m_Name

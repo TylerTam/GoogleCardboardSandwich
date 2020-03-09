@@ -165,6 +165,8 @@ public class PlatingArea : MonoBehaviour, IInteractable
             yield return null;
         }
         m_platingEvents.m_newObjectPlated.Invoke(p_objectType);
+
+        newFood.GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
 
     /// <summary>

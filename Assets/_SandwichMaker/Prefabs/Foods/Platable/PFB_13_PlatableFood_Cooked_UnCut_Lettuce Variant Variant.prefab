@@ -71,7 +71,22 @@ PrefabInstance:
     - target: {fileID: 6511974594550061789, guid: eea4aea9938fe764f90784566b126dcf,
         type: 3}
       propertyPath: m_Name
-      value: PFB_13_PlatableFood_Cooked_UnCut_Lettuce Variant
+      value: PFB_13_PlatableFood_Cooked_UnCut_Lettuce Variant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426833952542658648, guid: eea4aea9938fe764f90784566b126dcf,
+        type: 3}
+      propertyPath: Event
+      value: event:/Sounds/Splats/BreadSplat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426833952542658648, guid: eea4aea9938fe764f90784566b126dcf,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426833952542658648, guid: eea4aea9938fe764f90784566b126dcf,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea4aea9938fe764f90784566b126dcf, type: 3}

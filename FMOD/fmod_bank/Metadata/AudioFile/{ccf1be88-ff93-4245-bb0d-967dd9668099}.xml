@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{ccf1be88-ff93-4245-bb0d-967dd9668099}">
+		<property name="assetPath">
+			<value>Cupboard_Closed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.32068027210884353</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{57d41687-058e-41df-9f19-5791e06d472a}</destination>
+		</relationship>
+	</object>
+</objects>
