@@ -291,6 +291,7 @@ public class SandwhichType
     }
     public bool MatchesSandwich(SandwhichType p_matchSandwich, out int p_errorType)
     {
+        
         p_errorType = 0;
         if (!m_hasBottomBread)
         {
@@ -298,7 +299,6 @@ public class SandwhichType
         }
         if (!m_hasTopBread)
         {
-
             p_errorType = 1;
             return false;
         }
@@ -322,7 +322,7 @@ public class SandwhichType
         }
         if (p_matchSandwich.m_hasVegies)
         {
-            if (m_hasVegies)
+            if (!m_hasVegies)
             {
                 p_errorType = 2;
                 return false;
@@ -346,6 +346,6 @@ public class SandwhichType
 
     public bool GenericSandwich()
     {
-        return m_hasMeat == m_hasVegies == m_hasSauce == false;
+        return m_noSpecific;
     }
 }

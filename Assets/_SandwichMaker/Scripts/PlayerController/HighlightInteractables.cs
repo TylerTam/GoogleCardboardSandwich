@@ -39,7 +39,6 @@ public class HighlightInteractables : MonoBehaviour
         {
             if(hit.transform.gameObject != m_currentObject)
             {
-                Debug.Log("Current: " + m_currentObject.name + " | New: " + hit.transform.gameObject.name);
                 m_currentObject.GetComponent<IInteractable>().OnHoverLeft();
                 m_currentObject = hit.transform.gameObject;
                 m_currentObject.GetComponent<IInteractable>().OnHoverOver();
@@ -47,7 +46,12 @@ public class HighlightInteractables : MonoBehaviour
             }
             return;
         }
-        m_currentObject.GetComponent<IInteractable>().OnHoverLeft();
+        IInteractable currentHeld = m_currentObject.GetComponent<IInteractable>();
+        if (currentHeld == null)
+        {
+            Debug.Break();
+        }
+        currentHeld.OnHoverLeft();
         m_currentObject = null;
     }
 

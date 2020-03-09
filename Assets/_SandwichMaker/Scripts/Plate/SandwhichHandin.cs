@@ -25,9 +25,7 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
     public float m_failureMessageTime;
     public AnimationCurve m_errorFadeCurve;
     private Coroutine m_failureMessageCoroutine;
-    
-
-    public SandwichEvent m_sandwhichWrong, m_sandwichCorrect;
+    public SandwichEvent m_sandwhichWrong, m_sandwichCorrect, m_sandwichHandedIn;
 
     public ErrorMessages m_errorMessages;
     [System.Serializable]
@@ -64,6 +62,7 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
             m_playerHand.EmptyHand(true, false);
 
             StartTakenSandwichAnim();
+            m_sandwichHandedIn.Invoke();
         }
         return true;
 
