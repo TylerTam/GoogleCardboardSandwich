@@ -95,6 +95,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf54f8985813ae4182707b26cb294c9, type: 3}
+--- !u!23 &7999773652845814819 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: dbf54f8985813ae4182707b26cb294c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 295510081426557430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1367458562152798585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +191,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf54f8985813ae4182707b26cb294c9, type: 3}
+--- !u!23 &8784002018880681132 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: dbf54f8985813ae4182707b26cb294c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1367458562152798585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2291300359919121433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,6 +292,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf54f8985813ae4182707b26cb294c9, type: 3}
+--- !u!23 &8417630757264644556 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: dbf54f8985813ae4182707b26cb294c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2291300359919121433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3502683528758593081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,6 +393,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf54f8985813ae4182707b26cb294c9, type: 3}
+--- !u!23 &6593607431918054380 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: dbf54f8985813ae4182707b26cb294c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3502683528758593081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7271586607806702658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,13 +407,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_renderers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
       propertyPath: m_heldFoodIndex
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 8417630757264644556}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_renderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 6593607431918054380}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_renderers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1316405960535404862}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_renderers.Array.data[3]
+      value: 
+      objectReference: {fileID: 8784002018880681132}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_renderers.Array.data[4]
+      value: 
+      objectReference: {fileID: 7999773652845814819}
+    - target: {fileID: 211405230, guid: 382715802aa0cea4cb2e1dcd914c3625, type: 3}
+      propertyPath: m_highlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
     - target: {fileID: 7993850328572760976, guid: 382715802aa0cea4cb2e1dcd914c3625,
         type: 3}
       propertyPath: m_Name
-      value: PFB_19_HoldableFood_Cooked_Cut_Mushroom
+      value: PFB_19_HoldableFood_Cooked_Cut_Mushroom Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7993850328572760978, guid: 382715802aa0cea4cb2e1dcd914c3625,
         type: 3}
@@ -559,3 +611,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf54f8985813ae4182707b26cb294c9, type: 3}
+--- !u!23 &1316405960535404862 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: dbf54f8985813ae4182707b26cb294c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8744278698925366507}
+  m_PrefabAsset: {fileID: 0}

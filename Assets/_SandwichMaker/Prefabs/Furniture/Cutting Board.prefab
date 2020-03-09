@@ -177,6 +177,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   m_collider: {fileID: 4462875996073483565}
+  m_renderers:
+  - {fileID: 4462875996781270191}
+  m_highlightMaterial: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
 --- !u!65 &4462875996073483565
 BoxCollider:
   m_ObjectHideFlags: 0

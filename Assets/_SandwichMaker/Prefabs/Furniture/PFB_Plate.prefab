@@ -243,6 +243,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_platingAnimTime: 1
   m_startAnimHeight: 1
+  m_renderers:
+  - {fileID: 6359163840727609756}
+  m_highlightMaterial: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
 --- !u!114 &3955547232880054086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +331,12 @@ PrefabInstance:
 --- !u!4 &8513991351670880083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5af1e95792bee8d478468eb967218802,
+    type: 3}
+  m_PrefabInstance: {fileID: 3701240676257537097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6359163840727609756 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 5af1e95792bee8d478468eb967218802,
     type: 3}
   m_PrefabInstance: {fileID: 3701240676257537097}
   m_PrefabAsset: {fileID: 0}

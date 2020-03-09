@@ -184,6 +184,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  m_renderers:
+  - {fileID: 5011414569246686433}
+  m_highlightMaterial: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
   m_fridgeDoor: {fileID: 1351426434009187447}
   m_openRotationY: 105
   m_closedRotationY: 0
@@ -885,6 +888,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  m_renderers:
+  - {fileID: 7707451875862629172}
+  m_highlightMaterial: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
   p_offsetOpen: 1.85
   p_offestClosed: 0
 --- !u!65 &2732247172724742784

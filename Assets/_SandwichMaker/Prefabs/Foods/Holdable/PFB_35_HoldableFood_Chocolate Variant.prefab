@@ -94,6 +94,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56dbe3255b7a82644b024b2b9949be99, type: 3}
+--- !u!23 &7304678213579736350 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 56dbe3255b7a82644b024b2b9949be99,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027477368252000459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6854304525944710570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,13 +109,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
         type: 3}
+      propertyPath: m_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
       propertyPath: m_heldFoodIndex
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 7304678213579736350}
+    - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_highlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
     - target: {fileID: 8516289462987202981, guid: 551d098536f14af4a8fb6267c922f574,
         type: 3}
       propertyPath: m_Name
-      value: PFB_35_HoldableFood_Chocolate
+      value: PFB_35_HoldableFood_Chocolate Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8516289462987202983, guid: 551d098536f14af4a8fb6267c922f574,
         type: 3}
