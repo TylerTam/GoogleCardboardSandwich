@@ -76,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 7426833952542658648, guid: eea4aea9938fe764f90784566b126dcf,
         type: 3}
       propertyPath: Event
-      value: event:/Sounds/Splats/BreadSplat
+      value: event:/Sounds/Splats/Bread_Splat
       objectReference: {fileID: 0}
     - target: {fileID: 7426833952542658648, guid: eea4aea9938fe764f90784566b126dcf,
         type: 3}
