@@ -278,7 +278,7 @@ public class SandwhichType
 
     public void ResetMe()
     {
-        m_hasBottomBread = m_hasTopBread = m_hasMeat = m_hasVegies = m_hasSauce = false;
+        m_hasBottomBread = m_hasTopBread = m_hasMeat = m_hasVegies = m_hasSauce = m_noSpecific = false;
     }
 
     public void SetSandwhichType(SandwhichType p_newSandwhichType)
@@ -301,6 +301,11 @@ public class SandwhichType
         {
             p_errorType = 1;
             return false;
+        }
+
+        if (m_noSpecific)
+        {
+            return true;
         }
 
         if (p_matchSandwich.m_hasMeat)
