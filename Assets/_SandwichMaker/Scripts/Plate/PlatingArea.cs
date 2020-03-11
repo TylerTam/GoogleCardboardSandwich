@@ -42,6 +42,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     #region Plating Objects Variables
     private ObjectPooler m_pooler;
     private PlayerHand m_playerHand;
+    private bool m_finishSandwichAnim, m_canGetPlate = true;
     public enum IngredientType
     {
         Bread, Meat, Veggies, Sauce
@@ -70,6 +71,8 @@ public class PlatingArea : MonoBehaviour, IInteractable
     private SandwhichType m_currentSandwhich = new SandwhichType();
 
     #endregion
+
+
 
     private void Start()
     {
@@ -129,7 +132,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// <returns></returns>
     private IEnumerator PlateFoodAnimation(int p_objectType)
     {
-
+        m_canGetPlate = false;
         GameObject newFood = m_pooler.NewObject(m_foodObjects[p_objectType].m_objectOnSandwich, transform.position, Quaternion.identity);
         newFood.transform.parent = transform;
 
@@ -160,12 +163,21 @@ public class PlatingArea : MonoBehaviour, IInteractable
         float timer = 0;
         while (timer < m_platingAnimTime)
         {
+            if (m_finishSandwichAnim)
+            {
+                timer = m_platingAnimTime;
+            }
             timer += Time.deltaTime;
             float newFoodYPos = Mathf.Lerp(currentFoodHeight + m_startAnimHeight, currentFoodHeight, m_platingAnimCurve.Evaluate(timer / m_platingAnimTime));
             newFood.transform.position = new Vector3(newFood.transform.position.x, newFoodYPos, newFood.transform.position.z);
             yield return null;
         }
-        m_platingEvents.m_newObjectPlated.Invoke(p_objectType);
+
+        float finalFoodYPos = Mathf.Lerp(currentFoodHeight + m_startAnimHeight, currentFoodHeight, m_platingAnimCurve.Evaluate(1));
+        newFood.transform.position = new Vector3(newFood.transform.position.x, finalFoodYPos, newFood.transform.position.z);
+
+        m_canGetPlate = true;
+        m_finishSandwichAnim = false;
 
         newFood.GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
@@ -220,7 +232,18 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// </summary>
     public void FinishCurrentSandwich()
     {
-        HoldablePlate newPlate =  m_pooler.NewObject(m_plateObject, transform.position, Quaternion.identity).GetComponent<HoldablePlate>();
+        m_finishSandwichAnim = true;
+        StartCoroutine(GetNewPlate());
+    }
+
+    private IEnumerator GetNewPlate()
+    {
+        
+        while (!m_canGetPlate)
+        {
+            yield return null;
+        }
+        HoldablePlate newPlate = m_pooler.NewObject(m_plateObject, transform.position, Quaternion.identity).GetComponent<HoldablePlate>();
         newPlate.CreatePlate(m_transformsInSandwhich, m_currentSandwhich);
         m_currentSandwhich.ResetMe();
         m_playerHand.PickUpObject(newPlate.gameObject);
@@ -231,9 +254,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
         m_plateCollider.center = new Vector3(m_plateCollider.center.x, m_colOriginalPositionY, m_plateCollider.center.z);
 
         m_playerHand.SetHoldingSandwhichState(true);
-
     }
-
 
     #region IInteractable Highlight
     [Header("Highlight")]
@@ -303,7 +324,7 @@ public class SandwhichType
             return false;
         }
 
-        if (m_noSpecific)
+        if (p_matchSandwich.m_noSpecific)
         {
             return true;
         }
