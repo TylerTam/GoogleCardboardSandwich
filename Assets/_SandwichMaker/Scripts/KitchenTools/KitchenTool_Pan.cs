@@ -6,14 +6,20 @@ using UnityEngine;
 public class KitchenPanEvents : UnityEngine.Events.UnityEvent { }
 /// <summary>
 /// The class that allows the player to cook food
+/// Also used as a cutting board
 /// </summary>
 public class KitchenTool_Pan : MonoBehaviour, IInteractable
 {
+    [Tooltip("How long until the tool presents the cooked version")]
     public float m_cookingTime;
 
     public List<CookedFoodItems> m_cookedVersions;
     public Transform m_cookingSpot;
+
     [System.Serializable]
+    ////// <summary>
+    /// The cooked variants of the food objects
+    /// </summary>
     public struct CookedFoodItems
     {
         public string m_objectName;
@@ -50,6 +56,8 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
             }
         }
     }
+
+    
     public bool InteractionValid()
     {
         
@@ -57,7 +65,6 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
 
         if (m_currentCookedObject == null)
         {
-
             GameObject currentItem = m_playerHand.CurrentHeldObject().ReturnCurrentObject();
             m_playerHand.EmptyHand(false, false);
             currentItem.transform.position = m_cookingSpot.position;
@@ -80,6 +87,12 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         return false;
     }
 
+    /// <summary>
+    /// If the food can be cooked, returns the index value of that cooked version, if not, returns the ash gameobject
+    /// </summary>
+    /// <param name="p_itemIndex"></param>
+    /// <param name="p_foodIndex"></param>
+    /// <returns></returns>
     private bool CanBeCooked(int p_itemIndex, out int p_foodIndex)
     {
         p_foodIndex = 0;
@@ -94,6 +107,11 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         return true;
     }
 
+    /// <summary>
+    /// The coroutine that controls the cooking of the food. Simply a timer that runs, and when complete returns the cooked version
+    /// </summary>
+    /// <param name="p_cookedObject"></param>
+    /// <returns></returns>
     private IEnumerator StartCooking(GameObject p_cookedObject)
     {
         m_isCooking = true;

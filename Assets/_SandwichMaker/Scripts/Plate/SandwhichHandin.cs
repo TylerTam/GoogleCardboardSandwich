@@ -5,6 +5,10 @@ using UnityEngine;
 
 [System.Serializable]
 public class SandwichEvent : UnityEngine.Events.UnityEvent { }
+
+/// <summary>
+/// The interactable that hands in the sandwich for final review
+/// </summary>
 public class SandwhichHandin : MonoBehaviour, IInteractable
 {
 
@@ -17,9 +21,13 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
     private HoldablePlate m_finalSandwhich;
     private Animator m_aCont;
     public string m_animName;
+
     private bool m_canTakeSandwich = true;
+    private int m_currentCorrectSandwiches;
     private SandwhichType m_currentSandwich;
     private SandwhichType m_desiredSandwich = new SandwhichType();
+    
+
 
     [Header("Failiure Message")]
     public float m_failureMessageTime;
@@ -27,6 +35,11 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
     private Coroutine m_failureMessageCoroutine;
     public SandwichEvent m_sandwhichWrong, m_sandwichCorrect, m_sandwichHandedIn;
 
+
+    /// <summary>
+    /// Alerts the player to what was wrong within that sandwich, if anything was wrong
+    /// </summary>
+    #region Error Messages
     public ErrorMessages m_errorMessages;
     [System.Serializable]
     public struct ErrorMessages
@@ -36,6 +49,9 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         public string m_noTopBread;
     }
 
+    #endregion
+
+    #region UI
     public UiElements m_uiElements;
     [System.Serializable]
     public struct UiElements
@@ -44,8 +60,9 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         public CanvasGroup m_errorCanvas;
         public GameObject m_request_meat, m_request_veg, m_request_sauce, m_requestNone;
     }
+    #endregion
 
-    private int m_currentCorrectSandwiches;
+    
 
     private void Start()
     {
@@ -68,6 +85,9 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
 
     }
 
+    /// <summary>
+    /// Calls the animation controller to start the animation
+    /// </summary>
     private void StartTakenSandwichAnim()
     {
         m_canTakeSandwich = false;
@@ -80,6 +100,9 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         GetNewSandwich();
     }
 
+    /// <summary>
+    /// Creates a random new sanwich request, and displays it on the request board / ui
+    /// </summary>
     private void GetNewSandwich()
     {
         m_desiredSandwich.RandomizeSandwichType();
@@ -113,6 +136,9 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         
     }
 
+    /// <summary>
+    /// Called from an animation event, in order to complete the cycle
+    /// </summary>
     public void SandwichTaken()
     {
         m_canTakeSandwich = true;
@@ -121,6 +147,9 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         m_finalSandwhich.transform.parent = null;
     }
 
+    /// <summary>
+    /// Checks to see if the sandwich was correct. If not, it returns an error message, and displays it on the ui for the player to see
+    /// </summary>
     private void CheckSandwich()
     {
         int errorType = 0;
@@ -143,6 +172,11 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
 
     }
 
+    /// <summary>
+    /// Fades the failure message if one has been displayed
+    /// </summary>
+    /// <param name="p_message"></param>
+    /// <returns></returns>
     private IEnumerator FailureMessage(string p_message)
     {
         m_uiElements.m_errorText.text = p_message;
@@ -158,6 +192,11 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         m_uiElements.m_errorCanvas.alpha = 0;
     }
 
+    /// <summary>
+    /// Returns the correct error message
+    /// </summary>
+    /// <param name="p_errorType"></param>
+    /// <returns></returns>
     private string DisplayError(int p_errorType)
     {
         if (p_errorType == 0)

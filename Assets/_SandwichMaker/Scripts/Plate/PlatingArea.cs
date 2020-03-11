@@ -227,15 +227,16 @@ public class PlatingArea : MonoBehaviour, IInteractable
     }
 
 
-    /// <summary>
-    /// Creates an new plate object, and transfers the sandwich over to that
-    /// </summary>
+
     public void FinishCurrentSandwich()
     {
         m_finishSandwichAnim = true;
         StartCoroutine(GetNewPlate());
     }
 
+    /// <summary>
+    /// Creates an new plate object, and transfers the sandwich over to that
+    /// </summary>
     private IEnumerator GetNewPlate()
     {
         
@@ -287,6 +288,11 @@ public class PlatingArea : MonoBehaviour, IInteractable
 
 }
 
+/// <summary>
+/// A class that holds all the values for a sandwich.
+/// Contains functionality to create a new sandwich request, and also check to see if a different sandwich matches this one's ingredients
+/// Mostly used to determine if the player created the correct sandwich
+/// </summary>
 public class SandwhichType
 {
     public bool m_hasBottomBread;

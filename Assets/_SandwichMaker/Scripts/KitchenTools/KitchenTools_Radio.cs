@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A class that allows the player to toggle the music on and off
+/// </summary>
 public class KitchenTools_Radio : MonoBehaviour, IInteractable
 {
     public enum RadioState

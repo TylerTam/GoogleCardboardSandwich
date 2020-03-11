@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Changes the material on the object that the player is pointing at
+/// </summary>
 public class HighlightInteractables : MonoBehaviour
 {
     public LayerMask m_interactableLayer;
@@ -31,7 +34,9 @@ public class HighlightInteractables : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Checks if the object is still in range, if it isnt reset it's material
+    /// </summary>
     private void StillInRange()
     {
         RaycastHit hit;
@@ -55,6 +60,9 @@ public class HighlightInteractables : MonoBehaviour
         m_currentObject = null;
     }
 
+    /// <summary>
+    /// Checks if an object is in range, if it is change its material
+    /// </summary>
     private void CheckForObject()
     {
         RaycastHit hit;

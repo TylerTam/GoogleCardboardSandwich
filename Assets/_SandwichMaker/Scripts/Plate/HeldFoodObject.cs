@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The holdable food objects
+/// </summary>
 public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
 {
     public int m_heldFoodIndex;

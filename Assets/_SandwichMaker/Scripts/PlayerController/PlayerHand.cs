@@ -5,6 +5,10 @@ using UnityEngine;
 
 [System.Serializable]
 public class PlayerHandEvent : UnityEngine.Events.UnityEvent { }
+
+/// <summary>
+/// Allows the player to interact with the world, and hold objects
+/// </summary>
 public class PlayerHand : MonoBehaviour
 {
     private IHoldable m_holdableObject;
@@ -56,6 +60,10 @@ public class PlayerHand : MonoBehaviour
         m_pooler = ObjectPooler.instance;
     }
 
+    /// <summary>
+    /// Returns the held object
+    /// </summary>
+    /// <returns></returns>
     public IHoldable CurrentHeldObject()
     {
         return m_holdableObject;
@@ -101,6 +109,10 @@ public class PlayerHand : MonoBehaviour
             
     }
 
+    /// <summary>
+    /// Places the parameter object into the player's hand
+    /// </summary>
+    /// <param name="p_currentFood"></param>
     public void PickUpObject(GameObject p_currentFood)
     {
         m_holdableObject = p_currentFood.GetComponent<IHoldable>();
@@ -150,6 +162,10 @@ public class PlayerHand : MonoBehaviour
         EmptyHand(false);
     }
 
+    /// <summary>
+    /// Called from the plate and sandwhich hand in scripts. Used to determine if the player is currently holding the completed sandwich
+    /// </summary>
+    /// <param name="p_active"></param>
     public void SetHoldingSandwhichState(bool p_active)
     {
         m_holdingFinalSandwich = p_active;

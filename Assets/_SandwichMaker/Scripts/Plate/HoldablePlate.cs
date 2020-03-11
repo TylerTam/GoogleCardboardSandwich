@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The completed sandwich object. 
+/// </summary>
 public class HoldablePlate : MonoBehaviour, IHoldable
 {
-    private List<Transform> m_sandwhichObjects = new List<Transform>();
+    
     public Rigidbody m_plateRigidbody;
+
+    [Tooltip("Controls how long until the object depsawns after being dropped")]
     public float m_lifespan;
     public AnimationCurve m_lifespanAnimCurve;
     public SandwhichType m_currentSandwhichType = new SandwhichType();
-
     public LayerMask m_interactingLayer;
+    
+    
+    ///The different ingredients in the sandwich
+    private List<Transform> m_sandwhichObjects = new List<Transform>();
+    
     private ObjectPooler m_pooler;
     private void Start()
     {
@@ -127,6 +136,12 @@ public class HoldablePlate : MonoBehaviour, IHoldable
         m_pooler.ReturnToPool(gameObject);
     }
 
+    /// <summary>
+    /// Checks to see if the completed sandwich matches the requested sandwich
+    /// </summary>
+    /// <param name="p_checkSandwich"></param>
+    /// <param name="p_errorType"></param>
+    /// <returns></returns>
     public bool IsCorrectSandwich(SandwhichType p_checkSandwich, out int p_errorType)
     {
         return p_checkSandwich.MatchesSandwich(m_currentSandwhichType, out p_errorType);

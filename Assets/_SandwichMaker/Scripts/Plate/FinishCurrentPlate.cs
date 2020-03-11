@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The script that allows the player to pickup the sandwich on a plate. Needs a reference to the playing area.
+/// </summary>
 public class FinishCurrentPlate :MonoBehaviour, IInteractable
 {
     public PlatingArea m_platingArea;

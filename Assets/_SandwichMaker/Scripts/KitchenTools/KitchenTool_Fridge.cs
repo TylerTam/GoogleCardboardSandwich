@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Inherits from the KitchenTool class. Rotates a transform while toggling between opened and closed
+/// </summary>
 public class KitchenTool_Fridge : KitchenTool, IInteractable
 {
 
