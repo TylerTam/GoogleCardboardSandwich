@@ -886,7 +886,7 @@ MonoBehaviour:
           m_CallState: 2
   m_renderers:
   - {fileID: 7707451875862629172}
-  m_highlightMaterial: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
+  m_highlightMaterial: {fileID: 2100000, guid: 30a9990bfcf93374abc7f942a1771e08, type: 2}
   p_offsetOpen: 1.85
   p_offestClosed: 0
 --- !u!65 &2732247172724742784
@@ -1074,7 +1074,7 @@ MonoBehaviour:
           m_CallState: 2
   m_renderers:
   - {fileID: 5011414569246686433}
-  m_highlightMaterial: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
+  m_highlightMaterial: {fileID: 2100000, guid: 2fd413266f460774aa7357d1acca43ad, type: 2}
   m_fridgeDoor: {fileID: 5693067497264917499}
   m_openRotationY: 105
   m_closedRotationY: 0

@@ -261,19 +261,26 @@ public class PlatingArea : MonoBehaviour, IInteractable
     [Header("Highlight")]
     public List<MeshRenderer> m_renderers;
     private List<Material> m_originalMaterials = new List<Material>();
+    private List<MaterialPropertyBlock> m_propertyBlocks = new List<MaterialPropertyBlock>();
     public Material m_highlightMaterial;
+    private MaterialPropertyBlock m_propertyBlock;
     private void GetOriginalMaterials()
     {
         foreach (MeshRenderer rend in m_renderers)
         {
             m_originalMaterials.Add(rend.material);
+            MaterialPropertyBlock prop = new MaterialPropertyBlock();
+            rend.GetPropertyBlock(prop);
+            m_propertyBlocks.Add(prop);
         }
+        m_propertyBlock = new MaterialPropertyBlock();
     }
     public void OnHoverLeft()
     {
         foreach (MeshRenderer rend in m_renderers)
         {
             rend.material = m_originalMaterials[m_renderers.IndexOf(rend)];
+            rend.SetPropertyBlock(m_propertyBlocks[m_renderers.IndexOf(rend)]);
         }
     }
 
@@ -281,7 +288,12 @@ public class PlatingArea : MonoBehaviour, IInteractable
     {
         foreach (MeshRenderer rend in m_renderers)
         {
+
             rend.material = m_highlightMaterial;
+            rend.GetPropertyBlock(m_propertyBlock);
+            m_propertyBlock.SetColor("_Color", m_originalMaterials[m_renderers.IndexOf(rend)].color);
+            rend.SetPropertyBlock(m_propertyBlock);
+
         }
     }
     #endregion
