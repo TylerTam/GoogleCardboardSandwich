@@ -25,9 +25,7 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
     public float m_failureMessageTime;
     public AnimationCurve m_errorFadeCurve;
     private Coroutine m_failureMessageCoroutine;
-    
-
-    public SandwichEvent m_sandwhichWrong, m_sandwichCorrect;
+    public SandwichEvent m_sandwhichWrong, m_sandwichCorrect, m_sandwichHandedIn;
 
     public ErrorMessages m_errorMessages;
     [System.Serializable]
@@ -64,6 +62,7 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
             m_playerHand.EmptyHand(true, false);
 
             StartTakenSandwichAnim();
+            m_sandwichHandedIn.Invoke();
         }
         return true;
 
@@ -176,5 +175,32 @@ public class SandwhichHandin : MonoBehaviour, IInteractable
         return "Something Went Wrong";
     }
 
+    #region IInteractable Highlight
+    [Header("Highlight")]
+    public List<MeshRenderer> m_renderers;
+    private List<Material> m_originalMaterials = new List<Material>();
+    public Material m_highlightMaterial;
+    private void GetOriginalMaterials()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            m_originalMaterials.Add(rend.material);
+        }
+    }
+    public void OnHoverLeft()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            rend.material = m_originalMaterials[m_renderers.IndexOf(rend)];
+        }
+    }
 
+    public void OnHoverOver()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            rend.material = m_highlightMaterial;
+        }
+    }
+    #endregion
 }

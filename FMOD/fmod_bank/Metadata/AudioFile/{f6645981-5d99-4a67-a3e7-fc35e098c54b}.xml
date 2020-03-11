@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{f6645981-5d99-4a67-a3e7-fc35e098c54b}">
+		<property name="assetPath">
+			<value>CookingTimer.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.9204166666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{57d41687-058e-41df-9f19-5791e06d472a}</destination>
+		</relationship>
+	</object>
+</objects>

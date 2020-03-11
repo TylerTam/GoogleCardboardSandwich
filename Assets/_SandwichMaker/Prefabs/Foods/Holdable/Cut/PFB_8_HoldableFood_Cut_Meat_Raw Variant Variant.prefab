@@ -69,6 +69,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866d5632d971dea489c5a191bf96b09c, type: 3}
+--- !u!23 &8749346889507221651 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 866d5632d971dea489c5a191bf96b09c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1330487929740614982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6128268506198934450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,9 +154,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2046809220330537108, guid: 42c3b2c1243cf86469452af2ccdf5bc6,
         type: 3}
+      propertyPath: m_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2046809220330537108, guid: 42c3b2c1243cf86469452af2ccdf5bc6,
+        type: 3}
       propertyPath: m_heldFoodIndex
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2046809220330537108, guid: 42c3b2c1243cf86469452af2ccdf5bc6,
+        type: 3}
+      propertyPath: m_renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 8749346889507221651}
+    - target: {fileID: 2046809220330537108, guid: 42c3b2c1243cf86469452af2ccdf5bc6,
+        type: 3}
+      propertyPath: m_highlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42c3b2c1243cf86469452af2ccdf5bc6, type: 3}
 --- !u!4 &4894351658841922670 stripped

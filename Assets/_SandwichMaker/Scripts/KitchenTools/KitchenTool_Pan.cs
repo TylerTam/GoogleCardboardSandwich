@@ -20,6 +20,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         public GameObject m_cookedVersion;
         public int m_uncookedVersionIndex;
     }
+    public CookingEvents m_cookingEvents;
     [System.Serializable]
     public struct CookingEvents
     {
@@ -36,6 +37,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
     private void Start()
     {
         m_playerHand = PlayerHand.Instance;
+        GetOriginalMaterials();
     }
 
     private void Update()
@@ -97,6 +99,7 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         m_isCooking = true;
         HeldFoodObject currentCooked = p_cookedObject.GetComponent<HeldFoodObject>();
         currentCooked.SetColliderState(false);
+        m_cookingEvents.m_startCooking.Invoke();
 
         yield return new WaitForSeconds(m_cookingTime);
         
@@ -117,6 +120,36 @@ public class KitchenTool_Pan : MonoBehaviour, IInteractable
         }
 
         m_isCooking = false;
+        m_cookingEvents.m_finishedCooking.Invoke();
 
     }
+
+    #region IInteractable Highlight
+    [Header("Highlight")]
+    public List<MeshRenderer> m_renderers;
+    private List<Material> m_originalMaterials = new List<Material>();
+    public Material m_highlightMaterial;
+    private void GetOriginalMaterials()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            m_originalMaterials.Add(rend.material);
+        }
+    }
+    public void OnHoverLeft()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            rend.material = m_originalMaterials[m_renderers.IndexOf(rend)];
+        }
+    }
+
+    public void OnHoverOver()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            rend.material = m_highlightMaterial;
+        }
+    }
+    #endregion
 }

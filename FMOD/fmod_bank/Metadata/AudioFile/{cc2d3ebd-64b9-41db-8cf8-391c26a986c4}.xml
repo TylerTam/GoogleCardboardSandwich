@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{cc2d3ebd-64b9-41db-8cf8-391c26a986c4}">
+		<property name="assetPath">
+			<value>03 - Gourmet! Carnival - Gourmet Race.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>250.12244897959184</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{57d41687-058e-41df-9f19-5791e06d472a}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -9,13 +9,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
         type: 3}
+      propertyPath: m_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
       propertyPath: m_heldFoodIndex
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 6772866656933577499}
+    - target: {fileID: 8516289462987202980, guid: 551d098536f14af4a8fb6267c922f574,
+        type: 3}
+      propertyPath: m_highlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 96108d72e3939fe47abb626bcae0fea7, type: 2}
     - target: {fileID: 8516289462987202981, guid: 551d098536f14af4a8fb6267c922f574,
         type: 3}
       propertyPath: m_Name
-      value: PFB_HoldableFood_Ketchup Variant
+      value: PFB_6_HoldableFood_Ketchup Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8516289462987202983, guid: 551d098536f14af4a8fb6267c922f574,
         type: 3}
@@ -174,3 +189,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60872d9512f4c2a4b810ac23c9ea3376, type: 3}
+--- !u!23 &6772866656933577499 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 60872d9512f4c2a4b810ac23c9ea3376,
+    type: 3}
+  m_PrefabInstance: {fileID: 3955063505912098510}
+  m_PrefabAsset: {fileID: 0}

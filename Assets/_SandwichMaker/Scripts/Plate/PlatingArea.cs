@@ -42,6 +42,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     #region Plating Objects Variables
     private ObjectPooler m_pooler;
     private PlayerHand m_playerHand;
+    private bool m_finishSandwichAnim, m_canGetPlate = true;
     public enum IngredientType
     {
         Bread, Meat, Veggies, Sauce
@@ -71,12 +72,15 @@ public class PlatingArea : MonoBehaviour, IInteractable
 
     #endregion
 
+
+
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
         m_playerHand = PlayerHand.Instance;
         m_colOriginalPositionY = transform.position.y + m_plateCollider.center.y;
         m_colOriginalSizeY = m_plateCollider.size.y;
+        GetOriginalMaterials();
     }
 
     #region Plating Objects Functions
@@ -128,7 +132,7 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// <returns></returns>
     private IEnumerator PlateFoodAnimation(int p_objectType)
     {
-
+        m_canGetPlate = false;
         GameObject newFood = m_pooler.NewObject(m_foodObjects[p_objectType].m_objectOnSandwich, transform.position, Quaternion.identity);
         newFood.transform.parent = transform;
 
@@ -159,12 +163,23 @@ public class PlatingArea : MonoBehaviour, IInteractable
         float timer = 0;
         while (timer < m_platingAnimTime)
         {
+            if (m_finishSandwichAnim)
+            {
+                timer = m_platingAnimTime;
+            }
             timer += Time.deltaTime;
             float newFoodYPos = Mathf.Lerp(currentFoodHeight + m_startAnimHeight, currentFoodHeight, m_platingAnimCurve.Evaluate(timer / m_platingAnimTime));
             newFood.transform.position = new Vector3(newFood.transform.position.x, newFoodYPos, newFood.transform.position.z);
             yield return null;
         }
-        m_platingEvents.m_newObjectPlated.Invoke(p_objectType);
+
+        float finalFoodYPos = Mathf.Lerp(currentFoodHeight + m_startAnimHeight, currentFoodHeight, m_platingAnimCurve.Evaluate(1));
+        newFood.transform.position = new Vector3(newFood.transform.position.x, finalFoodYPos, newFood.transform.position.z);
+
+        m_canGetPlate = true;
+        m_finishSandwichAnim = false;
+
+        newFood.GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
 
     /// <summary>
@@ -217,7 +232,18 @@ public class PlatingArea : MonoBehaviour, IInteractable
     /// </summary>
     public void FinishCurrentSandwich()
     {
-        HoldablePlate newPlate =  m_pooler.NewObject(m_plateObject, transform.position, Quaternion.identity).GetComponent<HoldablePlate>();
+        m_finishSandwichAnim = true;
+        StartCoroutine(GetNewPlate());
+    }
+
+    private IEnumerator GetNewPlate()
+    {
+        
+        while (!m_canGetPlate)
+        {
+            yield return null;
+        }
+        HoldablePlate newPlate = m_pooler.NewObject(m_plateObject, transform.position, Quaternion.identity).GetComponent<HoldablePlate>();
         newPlate.CreatePlate(m_transformsInSandwhich, m_currentSandwhich);
         m_currentSandwhich.ResetMe();
         m_playerHand.PickUpObject(newPlate.gameObject);
@@ -228,10 +254,37 @@ public class PlatingArea : MonoBehaviour, IInteractable
         m_plateCollider.center = new Vector3(m_plateCollider.center.x, m_colOriginalPositionY, m_plateCollider.center.z);
 
         m_playerHand.SetHoldingSandwhichState(true);
-
     }
 
-    
+    #region IInteractable Highlight
+    [Header("Highlight")]
+    public List<MeshRenderer> m_renderers;
+    private List<Material> m_originalMaterials = new List<Material>();
+    public Material m_highlightMaterial;
+    private void GetOriginalMaterials()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            m_originalMaterials.Add(rend.material);
+        }
+    }
+    public void OnHoverLeft()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            rend.material = m_originalMaterials[m_renderers.IndexOf(rend)];
+        }
+    }
+
+    public void OnHoverOver()
+    {
+        foreach (MeshRenderer rend in m_renderers)
+        {
+            rend.material = m_highlightMaterial;
+        }
+    }
+    #endregion
+
 }
 
 public class SandwhichType
@@ -246,7 +299,7 @@ public class SandwhichType
 
     public void ResetMe()
     {
-        m_hasBottomBread = m_hasTopBread = m_hasMeat = m_hasVegies = m_hasSauce = false;
+        m_hasBottomBread = m_hasTopBread = m_hasMeat = m_hasVegies = m_hasSauce = m_noSpecific = false;
     }
 
     public void SetSandwhichType(SandwhichType p_newSandwhichType)
@@ -259,6 +312,7 @@ public class SandwhichType
     }
     public bool MatchesSandwich(SandwhichType p_matchSandwich, out int p_errorType)
     {
+        
         p_errorType = 0;
         if (!m_hasBottomBread)
         {
@@ -266,9 +320,13 @@ public class SandwhichType
         }
         if (!m_hasTopBread)
         {
-
             p_errorType = 1;
             return false;
+        }
+
+        if (p_matchSandwich.m_noSpecific)
+        {
+            return true;
         }
 
         if (p_matchSandwich.m_hasMeat)
@@ -290,7 +348,7 @@ public class SandwhichType
         }
         if (p_matchSandwich.m_hasVegies)
         {
-            if (m_hasVegies)
+            if (!m_hasVegies)
             {
                 p_errorType = 2;
                 return false;
@@ -314,6 +372,6 @@ public class SandwhichType
 
     public bool GenericSandwich()
     {
-        return m_hasMeat == m_hasVegies == m_hasSauce == false;
+        return m_noSpecific;
     }
 }
