@@ -712,7 +712,6 @@ GameObject:
   - component: {fileID: 1428723525768811185}
   - component: {fileID: 5363604026060064216}
   - component: {fileID: 6633353001114171198}
-  - component: {fileID: 5617120558283524470}
   m_Layer: 10
   m_Name: Fridge_Cupboard
   m_TagString: Untagged
@@ -944,19 +943,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14, y: 1.3635083, z: 2.35}
   m_Center: {x: -1.31, y: 0.014832914, z: 0}
---- !u!114 &5617120558283524470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414586631282637474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
 --- !u!1 &9091909248790176004
 GameObject:
   m_ObjectHideFlags: 0
