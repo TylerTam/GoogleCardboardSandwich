@@ -133,6 +133,11 @@ public class HeldFoodObject : MonoBehaviour, IInteractable, IHoldable
             rend.material = m_highlightMaterial;
             rend.GetPropertyBlock(m_propertyBlock);
             m_propertyBlock.SetColor("_Color", m_originalMaterials[m_renderers.IndexOf(rend)].color);
+            if (m_originalMaterials[m_renderers.IndexOf(rend)].mainTexture != null)
+            {
+                m_propertyBlock.SetTexture("_MainTex", m_originalMaterials[m_renderers.IndexOf(rend)].mainTexture);
+
+            }
             rend.SetPropertyBlock(m_propertyBlock);
 
         }

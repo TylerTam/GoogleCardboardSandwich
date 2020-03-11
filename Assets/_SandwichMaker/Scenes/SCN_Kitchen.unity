@@ -4791,6 +4791,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162747173}
     m_Modifications:
+    - target: {fileID: 3086243730233315919, guid: 8f05c36b941bcb1438eb00b91ece47d8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.91
+      objectReference: {fileID: 0}
     - target: {fileID: 5011414569246686433, guid: 8f05c36b941bcb1438eb00b91ece47d8,
         type: 3}
       propertyPath: m_Enabled
@@ -4800,6 +4805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PFB_Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681706036595825031, guid: 8f05c36b941bcb1438eb00b91ece47d8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.81
       objectReference: {fileID: 0}
     - target: {fileID: 7443481566678916118, guid: 8f05c36b941bcb1438eb00b91ece47d8,
         type: 3}
