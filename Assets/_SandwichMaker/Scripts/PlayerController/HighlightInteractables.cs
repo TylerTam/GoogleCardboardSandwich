@@ -47,11 +47,11 @@ public class HighlightInteractables : MonoBehaviour
             return;
         }
         IInteractable currentHeld = m_currentObject.GetComponent<IInteractable>();
-        if (currentHeld == null)
+        if (currentHeld != null)
         {
-            Debug.Break();
+            currentHeld.OnHoverLeft();
         }
-        currentHeld.OnHoverLeft();
+        
         m_currentObject = null;
     }
 
@@ -60,8 +60,15 @@ public class HighlightInteractables : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(m_fireSpot.position, m_fireSpot.forward, out hit, m_raycastLength, m_interactableLayer))
         {
-            m_currentObject = hit.transform.gameObject;
-            m_currentObject.GetComponent<IInteractable>().OnHoverOver();
+            
+            IInteractable newHeld = hit.transform.gameObject.GetComponent<IInteractable>();
+            if (newHeld != null)
+            {
+                m_currentObject = hit.transform.gameObject;
+                newHeld.OnHoverOver();
+
+            }
+            
             return;
         }
     }
